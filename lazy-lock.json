@@ -42,7 +42,7 @@
   "mini.pairs": { "branch": "main", "commit": "7e834c5937d95364cc1740e20d673afe2d034cdb" },
   "mini.surround": { "branch": "main", "commit": "48a9795c9d352c771e1ab5dedab6063c0a2df037" },
   "neo-tree.nvim": { "branch": "main", "commit": "a77af2e764c5ed4038d27d1c463fa49cd4794e07" },
-  "neoconf.nvim": { "branch": "main", "commit": "60fb5b86feb21496cc695ce9e566a4dbc4e6f968" },
+  "neoconf.nvim": { "branch": "main", "commit": "777cd15e537e6b3e7cfbb6dba77f0caeaa95aef0" },
   "neotest": { "branch": "master", "commit": "6d3d22cdad49999ef774ebe1bc250a4994038964" },
   "neotest-golang": { "branch": "main", "commit": "df6e3f34ae65f2520db798481a9d3f97581899b7" },
   "neotest-python": { "branch": "master", "commit": "a2861ab3c9a0bf75a56b11835c2bfc8270f5be7e" },

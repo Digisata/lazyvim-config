@@ -10,7 +10,7 @@ return {
       -- toggleterm / lazyterm at the bottom with a height of 40% of the screen
       {
         ft = "toggleterm",
-        size = { height = 0.4 },
+        size = { height = 0.3 },
         -- exclude floating windows
         filter = function(buf, win)
           return vim.api.nvim_win_get_config(win).relative == ""
@@ -19,7 +19,7 @@ return {
       {
         ft = "lazyterm",
         title = "LazyTerm",
-        size = { height = 0.4 },
+        size = { height = 0.3 },
         filter = function(buf)
           return not vim.b[buf].lazyterm_cmd
         end,
@@ -35,15 +35,45 @@ return {
         end,
       },
       { ft = "spectre_panel", size = { height = 0.4 } },
+      {
+        ft = "dap-repl",
+        title = "DAP REPL",
+        size = { height = 0.3 },
+      },
+      {
+        ft = "dapui_console",
+        title = "DAP Console",
+        size = { height = 0.3 },
+      },
     },
     left = {
-      -- Neo-tree filesystem always takes half the screen height
       {
         ft = "neo-tree",
         filter = function(buf)
           return vim.b[buf].neo_tree_source == "filesystem"
         end,
-        size = { height = 0.5, width = 0.2 },
+        size = { width = 0.2 },
+      },
+      -- Add DAP UI panels to the left
+      {
+        ft = "dapui_scopes",
+        title = "DAP Scopes",
+        size = { height = 0.25, width = 0.2 },
+      },
+      {
+        ft = "dapui_breakpoints",
+        title = "DAP Breakpoints",
+        size = { height = 0.25, width = 0.2 },
+      },
+      {
+        ft = "dapui_stacks",
+        title = "DAP Stacks",
+        size = { height = 0.25, width = 0.2 },
+      },
+      {
+        ft = "dapui_watches",
+        title = "DAP Watches",
+        size = { height = 0.25, width = 0.2 },
       },
     },
   },
