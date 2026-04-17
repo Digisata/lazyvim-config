@@ -15,6 +15,7 @@ return {
 
       local dap, dapui = require("dap"), require("dapui")
 
+      -- Keymaps
       vim.keymap.set("n", "<F2>", dap.step_into)
       vim.keymap.set("n", "<F3>", dap.step_over)
       vim.keymap.set("n", "<F4>", dap.step_out)
@@ -22,6 +23,7 @@ return {
       vim.keymap.set("n", "<F6>", dap.restart)
       vim.keymap.set("n", "<F7>", dap.terminate)
 
+      -- Auto open/close UI
       local function open_dapui()
         dapui.open()
         vim.cmd("Neotree close")
@@ -36,7 +38,7 @@ return {
       dap.listeners.before.event_terminated["dapui_config"] = close_dapui
       dap.listeners.before.event_exited["dapui_config"] = close_dapui
 
-      require("dapui").setup()
+      dapui.setup()
     end,
   },
 
@@ -48,6 +50,43 @@ return {
     },
     config = function()
       require("dap-go").setup()
+
+      local dap = require("dap")
+
+      dap.configurations.go = {
+        {
+          type = "go",
+          name = "🚀 Debug Root (main.go)",
+          request = "launch",
+          program = "${workspaceFolder}",
+        },
+        {
+          type = "go",
+          name = "🚀 Debug Server (cmd/server)",
+          request = "launch",
+          program = "${workspaceFolder}/cmd/server",
+        },
+        {
+          type = "go",
+          name = "📦 Debug Current File",
+          request = "launch",
+          program = "${file}",
+        },
+        {
+          type = "go",
+          name = "🧪 Debug Test (Current File)",
+          request = "launch",
+          mode = "test",
+          program = "${file}",
+        },
+        {
+          type = "go",
+          name = "🧪 Debug Test (Package)",
+          request = "launch",
+          mode = "test",
+          program = "${fileDirname}",
+        },
+      }
     end,
   },
 }
